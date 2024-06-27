@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker</title>
+</head>
+<body>
+    <input type="text" id="username" placeholder="Enter your name">
+    <input type="number" id="age" placeholder="Enter your age">
+    <button onclick="checkAge()">Check Age</button>
+    <div id="response"></div>
+
+    <script>
+        function checkAge() {
+            var username = document.getElementById('username').value.trim();
+            var age = parseInt(document.getElementById('age').value);
+
+            var responseDiv = document.getElementById('response');
+
+            if (!username) {
+                responseDiv.textContent = 'Please enter a valid name.';
+                return;
+            }
+
+            if (isNaN(age)) {
+                responseDiv.textContent = 'Please enter a valid age.';
+            } else {
+                if (age < 4) {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a toddler.';
+                } else if (age >= 4 && age <= 14) {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a primary school kid.';
+                } else if (age >= 15 && age <= 18) {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a high school student.';
+                } else if (age >= 19 && age <= 24) {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a college/university student.';
+                } else if (age >= 25 && age <= 55) {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a working class adult.';
+                } else {
+                    responseDiv.textContent = 'Hello, ' + username + '! You are a senior citizen.';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
